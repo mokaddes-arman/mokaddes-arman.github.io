@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD ABDUL MOKADDES - QA Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#88BDBC',
+                        secondary: '#254E58',
+                        dark: '#112D32',
+                        accent1: '#4F4A41',
+                        accent2: '#6E6658',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #254E58 0%, #112D32 100%);
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #88BDBC 0%, #254E58 100%);
+            transition: width 1s ease-in-out;
+        }
+        .counter-animation {
+            animation: countUp 2s ease-out forwards;
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #88BDBC;
+            left: -8px;
+            top: 0;
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #88BDBC;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #88BDBC;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-secondary">MD ABDUL<span class="text-primary"> MOKADDES</span></a>
+            <div class="hidden md:flex space-x-10">
+                <a href="#about" class="nav-link text-dark hover:text-primary transition">About</a>
+                <a href="#experience" class="nav-link text-dark hover:text-primary transition">Experience</a>
+                <a href="#skills" class="nav-link text-dark hover:text-primary transition">Skills</a>
+                <a href="#education" class="nav-link text-dark hover:text-primary transition">Education</a>
+                <a href="#contact" class="nav-link text-dark hover:text-primary transition">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i data-feather="menu" class="h-6 w-6 text-dark"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+                <a href="#about" class="nav-link text-dark hover:text-primary transition">About</a>
+                <a href="#experience" class="nav-link text-dark hover:text-primary transition">Experience</a>
+                <a href="#skills" class="nav-link text-dark hover:text-primary transition">Skills</a>
+                <a href="#education" class="nav-link text-dark hover:text-primary transition">Education</a>
+                <a href="#contact" class="nav-link text-dark hover:text-primary transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">MD ABDUL MOKADDES</h1>
+                <h2 class="text-xl md:text-2xl mb-6">Software QA Engineer</h2>
+                <p class="text-gray-200 mb-8">A passionate QA professional with expertise in ensuring software quality through comprehensive testing methodologies. Dedicated to delivering bug-free applications and exceptional user experiences.</p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-primary text-dark px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Contact Me</a>
+                    <a href="#experience" class="bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">View Experience</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
+                        <img src="IMG_1292.JPG" alt="MD Abdul Mokaddes" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-primary rounded-lg shadow-lg px-4 py-2 flex items-center">
+                        <span id="visitor-count" class="text-2xl font-bold text-dark mr-2">1</span>
+                        <span class="text-dark">visitors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="relative">
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-xl">
+                            <img src="Mokaddes.jpg" alt="MD Abdul Mokaddes" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-secondary text-white rounded-lg shadow-lg px-4 py-2">
+                            <span class="font-medium">5+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <h3 class="text-2xl font-semibold mb-4 text-dark">Professional Summary</h3>
+                    <p class="text-accent1 mb-6">
+                        I am a dedicated QA Engineer with over 5 years of experience in software testing. My expertise spans manual and automation testing across web applications and mobile apps. I'm passionate about ensuring software quality and delivering exceptional user experiences through comprehensive testing methodologies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h4 class="font-medium text-secondary">Role:</h4>
+                            <p class="text-accent1">Software QA Engineer</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-secondary">Experience:</h4>
+                            <p class="text-accent1">5+ Years</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-secondary">Specialization:</h4>
+                            <p class="text-accent1">Manual & Automation Testing</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-secondary">Availability:</h4>
+                            <p class="text-accent1">Available for hire</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Work Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Experience Item 1 -->
+                <div class="relative pl-8 pb-12 border-l-2 border-primary timeline-dot">
+                    <div class="card bg-white rounded-lg shadow-md p-6">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Software Engineer - Level 1 (QA)</h3>
+                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2024 - Present</span>
+                        </div>
+                        <h4 class="text-accent1 mb-4">STRATIV</h4>
+                        <ul class="text-accent1 list-disc pl-5 space-y-2">
+                            <li>Write test cases for projects using requirements.</li>
+                            <li>Write Software Requirement Specifications (SRS) and create user flows for projects.</li>
+                            <li>Write impact analysis reports using the provided solution plans.</li>
+                            <li>Conduct API testing using Postman and load testing using JMeter.</li>
+                            <li>Perform manual testing on web applications and mobile apps.</li>
+                            <li>Prepare test reports and checklists for projects.</li>
+                            <li>Manage ERP systems and Google Sheets for project tracking.</li>
+                            <li>Verify test cases across different platforms and multiple devices.</li>
+                            <li>Document and report bugs for developers.</li>
+                            <li>Develop training modules and provide training to team members.</li>
+                            <li>Conduct regression testing using tools like Playwright.</li>
+                            <li>Develop automation scripts using Playwright, Cypress, and Appium.</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Playwright</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Cypress</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Appium</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Postman</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">JMeter</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 2 -->
+                <div class="relative pl-8 pb-12 border-l-2 border-primary timeline-dot">
+                    <div class="card bg-white rounded-lg shadow-md p-6">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-dark">SQA Engineer</h3>
+                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2022 - 2024</span>
+                        </div>
+                        <h4 class="text-accent1 mb-4">Riseup Labs</h4>
+                        <ul class="text-accent1 list-disc pl-5 space-y-2">
+                            <li>Write test cases for existing projects.</li>
+                            <li>Perform API testing with Postman and load testing with JMeter.</li>
+                            <li>Conduct manual testing on web applications and mobile apps.</li>
+                            <li>Create test reports and project checklists.</li>
+                            <li>Manage Jira, Asana, and Google Sheets for ongoing projects.</li>
+                            <li>Prepare requirement and impact analysis reports.</li>
+                            <li>Verify test cases across various platforms and devices.</li>
+                            <li>Document and report bugs for developers.</li>
+                            <li>Write UAT reports.</li>
+                            <li>Develop training modules and train team members.</li>
+                            <li>Provide customer support.</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Jira</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Asana</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Postman</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">JMeter</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">UAT</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 3 -->
+                <div class="relative pl-8 border-l-2 border-primary timeline-dot">
+                    <div class="card bg-white rounded-lg shadow-md p-6">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Junior SQA Engineer</h3>
+                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2019 - 2021</span>
+                        </div>
+                        <h4 class="text-accent1 mb-4">Brain Craft Limited</h4>
+                        <ul class="text-accent1 list-disc pl-5 space-y-2">
+                            <li>Perform manual tests on iOS and Android apps.</li>
+                            <li>Write test cases for the existing projects.</li>
+                            <li>Create checklist for the existing projects.</li>
+                            <li>Bug report writing for developers.</li>
+                            <li>Verify bugs in multiple devices.</li>
+                            <li>Regression test, smoke test, sanity test, functional test, retest, and load test.</li>
+                            <li>Maintain Jira and Trello for existing projects.</li>
+                            <li>Give customer support.</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">iOS</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Android</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Jira</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Trello</span>
+                            <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Manual Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Skills & Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-dark">Testing Skills</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-accent1">Manual Testing</span>
+                            <span class="text-primary">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-accent1">API Testing (Postman)</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-accent1">Load Testing (JMeter)</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-accent1">Automation Testing</span>
+                            <span class="text-primary">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-accent1">Documentation</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-dark">Technical Skills</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="code" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Playwright</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="code" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Cypress</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="smartphone" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Appium</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="server" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Postman</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="activity" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">JMeter</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="check-square" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Selenium</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="trello" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Jira</h4>
+                        </div>
+                        
+                        <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
+                            <div class="text-secondary mb-2">
+                                <i data-feather="clipboard" class="mx-auto"></i>
+                            </div>
+                            <h4 class="font-medium text-dark">Asana</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Skills -->
+            <div class="mt-12 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-6 text-center text-dark">Additional Skills</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Agile</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Waterfall</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Mobile App Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Web Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Game Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Functional Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Regression Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Cross-Browser Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Sanity Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Smoke Testing</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Java</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">JavaScript</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">C</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Microsoft Office</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">Windows</span>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
+                        <span class="text-accent1">MacOS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Education</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Education Item 1 -->
+                <div class="card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white mr-4">
+                            <i data-feather="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark">Bachelor's Degree</h3>
+                            <p class="text-accent1">Completed in 2021</p>
+                        </div>
+                    </div>
+                    <h4 class="font-medium mb-2 text-secondary">University of Asia Pacific</h4>
+                    <p class="text-accent1">Bachelor in Computer Science & Engineering</p>
+                </div>
+                
+                <!-- Education Item 2 -->
+                <div class="card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white mr-4">
+                            <i data-feather="book" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark">HSC</h3>
+                            <p class="text-accent1">Completed in 2014</p>
+                        </div>
+                    </div>
+                    <h4 class="font-medium mb-2 text-secondary">Hazera Taju Degree College</h4>
+                    <p class="text-accent1">Higher Secondary Certificate</p>
+                </div>
+                
+                <!-- Education Item 3 -->
+                <div class="card bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white mr-4">
+                            <i data-feather="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark">SSC</h3>
+                            <p class="text-accent1">Completed in 2012</p>
+                        </div>
+                    </div>
+                    <h4 class="font-medium mb-2 text-secondary">Government Muslim High School</h4>
+                    <p class="text-accent1">Secondary School Certificate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-xl font-semibold mb-4 text-dark">Contact Information</h3>
+                    <p class="text-accent1 mb-6">Feel free to reach out to me for any inquiries or opportunities. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                    
+                    <div class="flex items-center mb-4">
+                        <div class="w-20 h-20 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary mr-4">
+                            <i data-feather="map-pin" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-dark">Location</h4>
+                            <p class="text-accent1">Flat no: F-1, House no: 179, Near Baitul Falah Jame Mosjid, Middle Azompur, Dokkhin Khan-1230, Dhaka</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary mr-4">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-dark">Email</h4>
+                            <p class="text-accent1">mokaddes.arman.2111@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary mr-4">
+                            <i data-feather="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-dark">Phone</h4>
+                            <p class="text-accent1">+880 1837-129041</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/mdabdulmokaddes" target="_blank" class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary hover:bg-opacity-30 transition">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://github.com/mokaddes-arman" target="_blank" class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary hover:bg-opacity-30 transition">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-dark">Send Me a Message</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-accent1 mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Your Name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-accent1 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Your Email">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-accent1 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Subject">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-accent1 mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Your Message"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="gradient-bg text-white py-6">
+    <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between">
+            <!-- Left: Name + Socials -->
+            <div class="flex items-center space-x-4">
+                <h2 class="text-lg font-bold">MD ABDUL<span class="text-primary"> MOKADDES</span></h2>
+                <a href="https://www.linkedin.com/in/mdabdulmokaddes" target="_blank" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                    <i data-feather="linkedin" class="w-4 h-4"></i>
+                </a>
+                <a href="https://github.com/mokaddes-arman" target="_blank" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                    <i data-feather="github" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Middle: Visitor Count -->
+            <div class="text-sm font-medium">
+                <span id="footer-visitor-count" class="font-bold">1</span> Visitors
+            </div>
+
+            <!-- Right: Credits -->
+            <p class="text-gray-300 text-sm">&copy; <span id="current-year"></span> MD ABDUL MOKADDES. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script>
+  async function updateVisitorCount() {
+    try {
+      const response = await fetch('http://localhost:3000/track');
+      const data = await response.json();
+      const visitorCount = data.totalVisitors;
+
+      // Select counters
+      const visitorCounters = document.querySelectorAll('#visitor-count, #footer-visitor-count');
+      
+      visitorCounters.forEach(counter => {
+        counter.textContent = visitorCount;
+        counter.classList.add('counter-animation');
+      });
+
+    } catch (error) {
+      console.error('Failed to fetch visitor count:', error);
+    }
+  }
+
+  updateVisitorCount();
+</script>
+    <script>
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+            
+            // Contact form submission (demo only)
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! This is a demo form. In a real portfolio, this would send your message.');
+                    contactForm.reset();
+                });
+            }
+            
+            // // Visitor counter functionality
+            // // In a real implementation, this would connect to a database
+            // // For demo purposes, we'll use localStorage
+            // let visitorCount = localStorage.getItem('qaPortfolioVisitorCount');
+            
+            // if (!visitorCount) {
+            //     visitorCount = Math.floor(Math.random() * 100) + 50; // Start with a random number between 50-150
+            // } else {
+            //     visitorCount = parseInt(visitorCount) + 1;
+            // }
+            
+            // localStorage.setItem('qaPortfolioVisitorCount', visitorCount);
+            
+            // // Update visitor counters with animation
+            // const visitorCounters = document.querySelectorAll('#visitor-count, #footer-visitor-count');
+            // visitorCounters.forEach(counter => {
+            //     counter.textContent = visitorCount;
+            //     counter.classList.add('counter-animation');
+            // });
+            
+            // Animate skill bars on scroll
+            const skillSection = document.getElementById('skills');
+            const progressBars = document.querySelectorAll('.progress');
+            
+            if (skillSection && progressBars.length) {
+                const animateSkills = () => {
+                    const sectionTop = skillSection.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.75) {
+                        progressBars.forEach(bar => {
+                            const width = bar.style.width;
+                            bar.style.width = '0';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 100);
+                        });
+                        window.removeEventListener('scroll', animateSkills);
+                    }
+                };
+                
+                window.addEventListener('scroll', animateSkills);
+                // Initial check
+                animateSkills();
+            }
+            
+            // Blog post hover effect
+            const blogCards = document.querySelectorAll('.blog-card');
+            blogCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.querySelector('svg').classList.add('scale-105');
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.querySelector('svg').classList.remove('scale-105');
+                });
+            });
+            
+            // Active section highlighting on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function setActiveLink() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveLink);
+            // Initial check
+            setActiveLink();
+        });
+    </script>
+</body>
+</html>
