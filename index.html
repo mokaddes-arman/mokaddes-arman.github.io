@@ -573,28 +573,35 @@
                 <div class="md:w-1/2">
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <h3 class="text-xl font-semibold mb-4 text-dark">Send Me a Message</h3>
-                        <form id="contact-form" class="space-y-4">
+                        <form id="contact-form" action="https://formspree.io/f/mdkzwrlb" method="POST" class="space-y-4">
                             <div>
                                 <label for="name" class="block text-accent1 mb-2">Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Your Name">
+                                <input type="text" name="name" id="name" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                    placeholder="Your Name">
                             </div>
-                            
                             <div>
                                 <label for="email" class="block text-accent1 mb-2">Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Your Email">
+                                <input type="email" name="email" id="email" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                    placeholder="Your Email">
                             </div>
-                            
                             <div>
                                 <label for="subject" class="block text-accent1 mb-2">Subject</label>
-                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Subject">
+                                <input type="text" name="subject" id="subject"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                    placeholder="Subject">
                             </div>
-                            
                             <div>
                                 <label for="message" class="block text-accent1 mb-2">Message</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Your Message"></textarea>
+                                <textarea name="message" id="message" rows="4" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                                    placeholder="Your Message"></textarea>
                             </div>
-                            
-                            <button type="submit" class="w-full bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Send Message</button>
+                            <button type="submit"
+                                class="w-full bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Send
+                                Message</button>
+                            <p id="form-status" class="text-green-600 text-sm mt-2 hidden">Thanks! Your message has been sent.</p>
                         </form>
                     </div>
                 </div>
@@ -627,6 +634,38 @@
         </div>
     </div>
 </footer>
+    <script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const action = form.getAttribute("action");
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        status.classList.remove("hidden");
+        form.reset();
+      } else {
+        status.textContent = "Oops! Something went wrong.";
+        status.classList.remove("hidden");
+        status.classList.replace("text-green-600", "text-red-600");
+      }
+    } catch (error) {
+      status.textContent = "There was a problem sending your message.";
+      status.classList.remove("hidden");
+      status.classList.replace("text-green-600", "text-red-600");
+    }
+  });
+</script>
 <script>
   async function updateVisitorCount() {
     try {
