@@ -652,11 +652,8 @@
         status.classList.remove("hidden");
         status.textContent = "Thanks! Your message has been sent.";
         form.reset();
-       // Hide the message after 5 seconds
-        setTimeout(() => {
-          status.classList.add("hidden");
-          status.textContent = "";
-        }, 5000);
+       // Refresh the page after 5 seconds
+        setTimeout(() => location.reload(), 5000);
       } else {
         status.textContent = "Oops! Something went wrong.";
         status.classList.remove("hidden");
