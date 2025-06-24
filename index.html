@@ -669,7 +669,7 @@
 <script>
   async function updateVisitorCount() {
     try {
-      const response = await fetch('http://localhost:3000/track');
+      const response = await fetch('http://mokaddes-arman.github.io/track');
       const data = await response.json();
       const visitorCount = data.totalVisitors;
 
@@ -726,36 +726,6 @@
                     }
                 });
             });
-            
-            // Contact form submission (demo only)
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! This is a demo form. In a real portfolio, this would send your message.');
-                    contactForm.reset();
-                });
-            }
-            
-            // // Visitor counter functionality
-            // // In a real implementation, this would connect to a database
-            // // For demo purposes, we'll use localStorage
-            // let visitorCount = localStorage.getItem('qaPortfolioVisitorCount');
-            
-            // if (!visitorCount) {
-            //     visitorCount = Math.floor(Math.random() * 100) + 50; // Start with a random number between 50-150
-            // } else {
-            //     visitorCount = parseInt(visitorCount) + 1;
-            // }
-            
-            // localStorage.setItem('qaPortfolioVisitorCount', visitorCount);
-            
-            // // Update visitor counters with animation
-            // const visitorCounters = document.querySelectorAll('#visitor-count, #footer-visitor-count');
-            // visitorCounters.forEach(counter => {
-            //     counter.textContent = visitorCount;
-            //     counter.classList.add('counter-animation');
-            // });
             
             // Animate skill bars on scroll
             const skillSection = document.getElementById('skills');
