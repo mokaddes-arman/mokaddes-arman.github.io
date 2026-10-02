@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD ABDUL MOKADDES - QA Engineer Portfolio</title>
+    <title>MD Abdul Mokaddes - SQA Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of MD Abdul Mokaddes, SQA Team Lead with 6+ years in manual and automation testing, API and performance testing, and QA team leadership. Open to remote and international roles.">
+    <link rel="canonical" href="https://mokaddes-arman.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MD Abdul Mokaddes - SQA Engineer Portfolio">
+    <meta property="og:description" content="SQA Team Lead with 6+ years in manual + automation, API/performance testing, and QA team leadership.">
+    <meta property="og:url" content="https://mokaddes-arman.github.io/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MD Abdul Mokaddes - SQA Engineer Portfolio">
+    <meta name="twitter:description" content="SQA Team Lead with 6+ years in manual + automation, API/performance testing, and QA team leadership.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "MD Abdul Mokaddes",
+        "jobTitle": "SQA Team Lead",
+        "email": "mailto:mokaddes.arman.2111@gmail.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/mdabdulmokaddes",
+            "https://github.com/mokaddes-arman"
+        ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -23,9 +46,25 @@
         }
     </script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        section[id] {
+            scroll-margin-top: 90px;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+        }
+        /* Visible focus styles for keyboard users */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        [role="tab"]:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid #254E58;
+            outline-offset: 2px;
+            border-radius: 4px;
         }
         .gradient-bg {
             background: linear-gradient(135deg, #254E58 0%, #112D32 100%);
@@ -36,18 +75,6 @@
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .progress-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #e2e8f0;
-            overflow: hidden;
-        }
-        .progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #88BDBC 0%, #254E58 100%);
-            transition: width 1s ease-in-out;
         }
         .counter-animation {
             animation: countUp 2s ease-out forwards;
@@ -89,6 +116,49 @@
         .nav-link.active::after {
             width: 100%;
         }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+            line-height: 1.25rem;
+        }
+        .chip-planned {
+            border: 1px dashed #6E6658;
+            color: #6E6658;
+            background: transparent;
+        }
+        /* Project tabs */
+        .project-tab {
+            border: 2px solid transparent;
+        }
+        .project-tab[aria-selected="true"] {
+            background-color: #254E58;
+            color: #fff;
+        }
+        /* Back to top */
+        #back-to-top {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -96,15 +166,17 @@
     <nav class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-secondary">MD ABDUL<span class="text-primary"> MOKADDES</span></a>
-            <div class="hidden md:flex space-x-10">
+            <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-dark hover:text-primary transition">About</a>
                 <a href="#experience" class="nav-link text-dark hover:text-primary transition">Experience</a>
+                <a href="#projects" class="nav-link text-dark hover:text-primary transition">Projects</a>
                 <a href="#skills" class="nav-link text-dark hover:text-primary transition">Skills</a>
                 <a href="#education" class="nav-link text-dark hover:text-primary transition">Education</a>
                 <a href="#contact" class="nav-link text-dark hover:text-primary transition">Contact</a>
+                <a href="Mokaddes_SQA_Engineer_CV.pdf" download="Mokaddes_SQA_Engineer_CV.pdf" class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">Download CV</a>
             </div>
             <div class="md:hidden">
-                <button id="menu-toggle" class="focus:outline-none">
+                <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" class="focus:outline-none">
                     <i data-feather="menu" class="h-6 w-6 text-dark"></i>
                 </button>
             </div>
@@ -114,9 +186,11 @@
             <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
                 <a href="#about" class="nav-link text-dark hover:text-primary transition">About</a>
                 <a href="#experience" class="nav-link text-dark hover:text-primary transition">Experience</a>
+                <a href="#projects" class="nav-link text-dark hover:text-primary transition">Projects</a>
                 <a href="#skills" class="nav-link text-dark hover:text-primary transition">Skills</a>
                 <a href="#education" class="nav-link text-dark hover:text-primary transition">Education</a>
                 <a href="#contact" class="nav-link text-dark hover:text-primary transition">Contact</a>
+                <a href="Mokaddes_SQA_Engineer_CV.pdf" download="Mokaddes_SQA_Engineer_CV.pdf" class="bg-secondary text-white px-4 py-2 rounded-lg font-medium text-center hover:bg-opacity-90 transition">Download CV</a>
             </div>
         </div>
     </nav>
@@ -127,20 +201,42 @@
             <div class="md:w-1/2 text-center md:text-left text-white">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">MD ABDUL MOKADDES</h1>
                 <h2 class="text-xl md:text-2xl mb-6">Software Quality Assurance Engineer</h2>
-                <p class="text-gray-200 mb-8">A passionate QA professional with expertise in ensuring software quality through comprehensive testing methodologies. Dedicated to delivering bug-free applications, leading QA teams, and exceptional user experiences.</p>
+                <p class="text-gray-200 mb-8">SQA Team Lead ensuring quality across web, mobile, and game applications through structured manual and automation testing.</p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#contact" class="bg-primary text-dark px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Contact Me</a>
                     <a href="#experience" class="bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">View Experience</a>
                 </div>
+                <dl class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center md:text-left">
+                    <div class="bg-white bg-opacity-10 rounded-lg px-3 py-3">
+                        <dt class="sr-only">Years in QA</dt>
+                        <dd class="text-lg font-bold">6+ Years</dd>
+                        <dd class="text-sm text-gray-200">in QA</dd>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg px-3 py-3">
+                        <dt class="sr-only">Companies</dt>
+                        <dd class="text-lg font-bold">4</dd>
+                        <dd class="text-sm text-gray-200">Companies</dd>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg px-3 py-3">
+                        <dt class="sr-only">Projects tested</dt>
+                        <dd class="text-lg font-bold">35+</dd>
+                        <dd class="text-sm text-gray-200">Projects Tested</dd>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg px-3 py-3">
+                        <dt class="sr-only">Team leadership</dt>
+                        <dd class="text-lg font-bold">3-member</dd>
+                        <dd class="text-sm text-gray-200">QA team led</dd>
+                    </div>
+                </dl>
             </div>
             <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
                 <div class="relative">
                     <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
-                        <img src="IMG_1292.JPG" alt="MD Abdul Mokaddes" class="w-full h-full object-cover">
+                        <img src="IMG_1292.JPG" alt="Portrait photo of MD Abdul Mokaddes" class="w-full h-full object-cover" loading="lazy" width="320" height="320">
                     </div>
                     <div class="absolute -bottom-4 -right-4 bg-primary rounded-lg shadow-lg px-4 py-2 flex items-center">
                         <span id="visitor-count" class="text-2xl font-bold text-dark mr-2 opacity-0 transition-opacity duration-300">0</span>
-                        <span class="text-dark">visitors</span>
+                        <span class="text-dark" data-visitor-label>visitors</span>
                     </div>
                 </div>
             </div>
@@ -155,7 +251,7 @@
                 <div class="md:w-1/2 mb-8 md:mb-0">
                     <div class="relative">
                         <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-xl">
-                            <img src="Mokaddes.JPG" alt="MD Abdul Mokaddes" class="w-full h-full object-cover">
+                            <img src="Mokaddes.JPG" alt="MD Abdul Mokaddes standing outdoors in professional attire" class="w-full h-full object-cover" loading="lazy" width="448" height="560">
                         </div>
                         <div class="absolute -bottom-5 -right-5 bg-secondary text-white rounded-lg shadow-lg px-4 py-2">
                             <span class="font-medium">6+ Years Experience</span>
@@ -165,7 +261,7 @@
                 <div class="md:w-1/2 md:pl-10">
                     <h3 class="text-2xl font-semibold mb-4 text-dark">Professional Summary</h3>
                     <p class="text-accent1 mb-6">
-                        I am a dedicated SQA professional with over 6 years of experience in software testing and team leadership. My expertise spans manual and automation testing across web and mobile applications, along with leading QA teams, planning test strategy, and mentoring team members. I'm passionate about ensuring software quality and delivering exceptional user experiences through comprehensive testing methodologies.
+                        I am an SQA Team Lead with 6+ years of experience testing web, mobile, and game applications. My strengths are manual and automation testing, API and performance testing, and leading QA planning, execution, and mentoring. I focus on clear test strategy, thorough reporting, and reliable releases, and I am open to remote and international roles.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div>
@@ -185,7 +281,7 @@
                             <p class="text-accent1">Open to remote & international roles</p>
                         </div>
                     </div>
-                    <a href="MD ABDUL MOKADDES_SQA Engineer.pdf" download="MD ABDUL MOKADDES_SQA Engineer.pdf" class="inline-block bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Download CV</a>
+                    <a href="Mokaddes_SQA_Engineer_CV.pdf" download="Mokaddes_SQA_Engineer_CV.pdf" class="inline-block bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Download CV</a>
                 </div>
             </div>
         </div>
@@ -201,14 +297,14 @@
                     <div class="card bg-white rounded-lg shadow-md p-6">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                             <h3 class="text-xl font-semibold text-dark">SQA Team Lead</h3>
-                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2026 - Present</span>
+                            <span class="text-sm font-medium text-secondary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2026 - Present</span>
                         </div>
                         <h4 class="text-accent1 mb-4">GCB Holding</h4>
                         <ul class="text-accent1 list-disc pl-5 space-y-2">
-                            <li>Lead a 3-member QA team, handling task planning, tracking, and weekly performance reports to stakeholders.</li>
-                            <li>Manage mobile QA planning and execution for iOS & Android alongside manual testing on iOS, Android, and web platforms.</li>
-                            <li>Write test plans, test cases, checklists, bug reports, user stories, and mind maps for each feature.</li>
-                            <li>Perform UAT and UI/UX testing on new features while mentoring team members to maintain quality standards.</li>
+                            <li>Lead a 3-member QA team, owning task planning, tracking, and weekly stakeholder reports. <!-- [ADD LATER: metric] --></li>
+                            <li>Plan and execute mobile QA for iOS and Android, plus manual testing across iOS, Android, and web. <!-- [ADD LATER: metric] --></li>
+                            <li>Author test plans, test cases, checklists, bug reports, user stories, and mind maps for each feature.</li>
+                            <li>Run UAT and UI/UX checks on new features while mentoring team members on quality standards.</li>
                         </ul>
                         <div class="mt-4 flex flex-wrap gap-2">
                             <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Team Leadership</span>
@@ -226,22 +322,18 @@
                     <div class="card bg-white rounded-lg shadow-md p-6">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                             <h3 class="text-xl font-semibold text-dark">SQA Engineer - Level 3</h3>
-                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2024 - 2026</span>
+                            <span class="text-sm font-medium text-secondary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2024 - 2026</span>
                         </div>
                         <h4 class="text-accent1 mb-4">STRATIV</h4>
                         <ul class="text-accent1 list-disc pl-5 space-y-2">
-                            <li>Write test cases for projects using requirements.</li>
-                            <li>Write Software Requirement Specifications (SRS) and create user flows for projects.</li>
-                            <li>Write impact analysis reports using the provided solution plans.</li>
-                            <li>Conduct API testing using Postman and load testing using JMeter.</li>
-                            <li>Perform manual testing on web applications and mobile apps.</li>
-                            <li>Prepare test reports and checklists for projects.</li>
-                            <li>Manage ERP systems and Google Sheets for project tracking.</li>
-                            <li>Verify test cases across different platforms and multiple devices.</li>
-                            <li>Document and report bugs for developers.</li>
-                            <li>Develop training modules and provide training to team members.</li>
-                            <li>Conduct regression testing using tools like Playwright.</li>
-                            <li>Develop automation scripts using Playwright, Cypress, and Appium.</li>
+                            <li>Author test cases from requirements and define user flows. <!-- [ADD LATER: metric] --></li>
+                            <li>Write Software Requirement Specifications (SRS) and impact analysis reports from solution plans.</li>
+                            <li>Execute API testing with Postman and load testing with JMeter. <!-- [ADD LATER: metric] --></li>
+                            <li>Perform manual testing on web applications and mobile apps across platforms and devices.</li>
+                            <li>Prepare test reports, checklists, and bug reports for developers.</li>
+                            <li>Track work in ERP systems and Google Sheets to keep project status visible.</li>
+                            <li>Build training modules and train team members on QA process.</li>
+                            <li>Run regression testing and develop automation scripts with Playwright, Cypress, and Appium.</li>
                         </ul>
                         <div class="mt-4 flex flex-wrap gap-2">
                             <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Playwright</span>
@@ -258,21 +350,17 @@
                     <div class="card bg-white rounded-lg shadow-md p-6">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                             <h3 class="text-xl font-semibold text-dark">SQA Engineer</h3>
-                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2022 - 2024</span>
+                            <span class="text-sm font-medium text-secondary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2022 - 2024</span>
                         </div>
                         <h4 class="text-accent1 mb-4">Riseup Labs</h4>
                         <ul class="text-accent1 list-disc pl-5 space-y-2">
-                            <li>Write test cases for existing projects.</li>
-                            <li>Perform API testing with Postman and load testing with JMeter.</li>
-                            <li>Conduct manual testing on web applications and mobile apps.</li>
-                            <li>Create test reports and project checklists.</li>
-                            <li>Manage Jira, Asana, and Google Sheets for ongoing projects.</li>
-                            <li>Prepare requirement and impact analysis reports.</li>
-                            <li>Verify test cases across various platforms and devices.</li>
-                            <li>Document and report bugs for developers.</li>
-                            <li>Write UAT reports.</li>
-                            <li>Develop training modules and train team members.</li>
-                            <li>Provide customer support.</li>
+                            <li>Author test cases, checklists, and test reports for web, mobile, and game projects. <!-- [ADD LATER: metric] --></li>
+                            <li>Execute API testing with Postman and load testing with JMeter.</li>
+                            <li>Perform manual testing across platforms and devices, including game testing.</li>
+                            <li>Prepare requirement and impact analysis reports plus UAT reports.</li>
+                            <li>Document and report bugs for developers with clear reproduction steps.</li>
+                            <li>Coordinate work in Jira, Asana, and Google Sheets for ongoing projects.</li>
+                            <li>Build training modules, train team members, and provide customer support.</li>
                         </ul>
                         <div class="mt-4 flex flex-wrap gap-2">
                             <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">Jira</span>
@@ -289,18 +377,15 @@
                     <div class="card bg-white rounded-lg shadow-md p-6">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                             <h3 class="text-xl font-semibold text-dark">Junior SQA Engineer</h3>
-                            <span class="text-sm font-medium text-primary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2019 - 2021</span>
+                            <span class="text-sm font-medium text-secondary bg-primary bg-opacity-20 px-3 py-1 rounded-full mt-2 md:mt-0">2019 - 2021</span>
                         </div>
                         <h4 class="text-accent1 mb-4">Brain Craft Limited</h4>
                         <ul class="text-accent1 list-disc pl-5 space-y-2">
-                            <li>Perform manual tests on iOS and Android apps.</li>
-                            <li>Write test cases for the existing projects.</li>
-                            <li>Create checklist for the existing projects.</li>
-                            <li>Bug report writing for developers.</li>
-                            <li>Verify bugs in multiple devices.</li>
-                            <li>Regression test, smoke test, sanity test, functional test, retest, and load test.</li>
-                            <li>Maintain Jira and Trello for existing projects.</li>
-                            <li>Give customer support.</li>
+                            <li>Execute manual tests on iOS and Android apps across multiple devices. <!-- [ADD LATER: metric] --></li>
+                            <li>Author test cases and checklists for existing projects.</li>
+                            <li>Write clear bug reports for developers and verify fixes.</li>
+                            <li>Run regression, smoke, sanity, functional, retest, and load tests.</li>
+                            <li>Maintain Jira and Trello boards and provide customer support.</li>
                         </ul>
                         <div class="mt-4 flex flex-wrap gap-2">
                             <span class="bg-primary bg-opacity-20 text-secondary px-3 py-1 rounded-full text-sm">iOS</span>
@@ -315,78 +400,366 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 text-secondary">Projects</h2>
+            <p class="text-center text-accent1 mb-8 max-w-2xl mx-auto">A selection of professional QA work grouped by company, plus personal testing tools and automation projects.</p>
+            <div class="flex justify-center mb-8">
+                <div role="tablist" aria-label="Project categories" class="inline-flex flex-wrap justify-center gap-2 bg-gray-100 p-1.5 rounded-xl">
+                    <button id="tab-professional" role="tab" aria-selected="true" aria-controls="panel-professional" class="project-tab px-5 py-2.5 rounded-lg font-medium text-dark transition">
+                        Professional Projects
+                    </button>
+                    <button id="tab-personal" role="tab" aria-selected="false" aria-controls="panel-personal" tabindex="-1" class="project-tab px-5 py-2.5 rounded-lg font-medium text-dark transition">
+                        Personal Projects
+                    </button>
+                </div>
+            </div>
+
+            <!-- Professional panel -->
+            <div id="panel-professional" role="tabpanel" aria-labelledby="tab-professional" tabindex="0">
+                <p class="text-sm text-accent2 text-center mb-10">Some projects are under NDA, so details are limited to testing scope and responsibilities.</p>
+                <div class="max-w-5xl mx-auto space-y-10">
+
+                    <!-- GCB Holding -->
+                    <div>
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold text-dark">GCB Holding <span class="font-normal text-accent1">— SQA Team Lead, 2026 - Present</span></h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4" aria-label="Testing skills applied at GCB Holding">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Automation</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Manual Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">API Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Load Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Performance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Database Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Requirement Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Root Cause Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Design</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Bug Reporting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Cross Browser Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Scenario Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Module Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Smoke Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Sanity Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">UI Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">User Acceptance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Regression Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Penetration Testing (Basic)</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Security Reporting</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4">
+                                <p class="font-medium text-dark">Tahweel</p>
+                                <div class="mt-2 flex flex-wrap gap-1.5">
+                                    <span class="chip bg-secondary text-white">Android</span>
+                                </div>
+                                <p class="mt-2 text-xs text-accent2">GCB Holding</p>
+                            </div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4">
+                                <p class="font-medium text-dark">Tahweel - GCB</p>
+                                <div class="mt-2 flex flex-wrap gap-1.5">
+                                    <span class="chip bg-secondary text-white">iOS</span>
+                                </div>
+                                <p class="mt-2 text-xs text-accent2">GCB Holding</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Strativ -->
+                    <div>
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Strativ <span class="font-normal text-accent1">— SQA Engineer - Level 3, 2024 - 2026</span></h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4" aria-label="Testing skills applied at Strativ">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Automation</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Manual Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">API Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Load Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Performance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Database Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Requirement Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Root Cause Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Design</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Bug Reporting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Cross Browser Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Scenario Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Module Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Smoke Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Sanity Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">UI Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">User Acceptance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Regression Testing</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Safe Trafikskola</p><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Moa</p><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Strativ Portal</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Web</span></div><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Strativ ERP Portal</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Web</span></div><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Boo Energi Admin Portal</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Web</span></div><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Boo Energi Customer Portal</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Web</span></div><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Basic Safety</p><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Indexon</p><p class="mt-2 text-xs text-accent2">Strativ</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Riseup Labs -->
+                    <div id="company-riseup-labs">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Riseup Labs <span class="font-normal text-accent1">— SQA Engineer, 2022 - 2024</span></h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4" aria-label="Testing skills applied at Riseup Labs">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Requirement Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Root Cause Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Design</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Bug Reporting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Cross Browser Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Load Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">API Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Scenario Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Functional Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Scripting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Module Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Smoke Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Sanity Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">UI Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">User Acceptance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Regression Testing</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Cric Live</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs · Google Play app</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Meena Game</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Meena Game 2</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Out of School Children in BD</p><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Adolescent Nutrition Reporting</p><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Highway Chase</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Rooftop Frenzy</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Brain Boss: A Brain Puzzler</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Speed Tapping - Tap Fast!</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">U-Report App</p><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">World's Fastest Drummer</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">X-Treme BasketBall AR</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Tap Tap Ants Ant Smasher</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Game</span></div><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Jeeto.Online</p><p class="mt-2 text-xs text-accent2">Riseup Labs</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Brain Craft -->
+                    <div>
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Brain Craft Limited <span class="font-normal text-accent1">— Junior SQA Engineer, 2019 - 2021</span></h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4" aria-label="Testing skills applied at Brain Craft Limited">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Root Cause Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Design</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Functional Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Scenario Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Module Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Smoke Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Sanity Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">UI Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Regression Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Bug Reporting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Report</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Vintage Camera &amp; Retro Filters</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Sticker Maker: Create Stickers</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Keyboard Fonts &amp; Emoji Maker</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Sticker Maker - WaSticker</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Add Music to Video Voice Over</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Slow Motion Video Fx Editor</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Cleaner - Clean Duplicate Item</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">GIF Maker - Make Video to GIFs</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">VPN for iPhone</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Language Translator</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">Photo Vault | Hidden Album PV</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">No Crop - Video &amp; Pictures Fit</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                            <div class="card bg-gray-50 border border-gray-100 rounded-lg p-4"><p class="font-medium text-dark">SlideShow Maker with Music Fx</p><div class="mt-2 flex flex-wrap gap-1.5"><span class="chip bg-primary bg-opacity-20 text-secondary">Mobile</span></div><p class="mt-2 text-xs text-accent2">Brain Craft Limited</p></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Personal panel -->
+            <div id="panel-personal" role="tabpanel" aria-labelledby="tab-personal" tabindex="0" hidden>
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- API Sentry (featured) -->
+                    <article class="card md:col-span-2 bg-gray-50 border-2 border-secondary rounded-xl p-6 md:p-8">
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-semibold text-dark">API Sentry</h3>
+                            <span class="chip bg-secondary text-white">Featured</span>
+                        </div>
+                        <p class="text-accent1 mb-4">A web-based QA testing platform where users can run functional testing, load testing, security scans, database testing and penetration testing just by entering a URL. Users can also submit feedback and track its status.</p>
+                        <div class="flex flex-wrap gap-2 mb-5" aria-label="Tools and tags for API Sentry">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Functional Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Load Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Security Scan</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Database Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Penetration Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Web App</span>
+                        </div>
+                        <details class="mb-5 bg-white rounded-lg p-4 border border-gray-200">
+                            <summary class="cursor-pointer font-medium text-secondary">Coming soon — planned features</summary>
+                            <div class="mt-3 flex flex-wrap gap-2" aria-label="Planned features, not yet live">
+                                <span class="chip chip-planned">UI Testing</span>
+                                <span class="chip chip-planned">Test Case Generation</span>
+                                <span class="chip chip-planned">Test Report Generation</span>
+                                <span class="chip chip-planned">Requirement Analysis Report</span>
+                                <span class="chip chip-planned">Bug Report Modification</span>
+                                <span class="chip chip-planned">Test Plan Generation</span>
+                                <span class="chip chip-planned">Mind Map Generation</span>
+                                <span class="chip chip-planned">Checklist Generation</span>
+                            </div>
+                        </details>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://apisentry-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="bg-secondary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition">Live Demo</a>
+                        </div>
+                    </article>
+
+                    <article class="card bg-gray-50 border border-gray-100 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Weekly Team Update</h3>
+                        <p class="text-accent1 mb-4">A reporting tool that helps a QA Team Lead generate weekly team reports to share with managers and CTOs.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Reporting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">QA Management</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Web App</span>
+                        </div>
+                        <a href="https://weekly-team-update.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-secondary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition">Live Demo</a>
+                        <p class="mt-2 text-xs text-accent2">May take up to a minute to load on first visit.</p>
+                    </article>
+
+                    <article class="card bg-gray-50 border border-gray-100 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Khorcha</h3>
+                        <p class="text-accent1 mb-4">A personal expense tracking web app.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Web App</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Personal Finance</span>
+                        </div>
+                        <a href="https://khorcha-app.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-secondary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition">Live Demo</a>
+                        <p class="mt-2 text-xs text-accent2">May take up to a minute to load on first visit.</p>
+                    </article>
+
+                    <!-- DRAFT: review description before publishing -->
+                    <article class="card bg-gray-50 border border-gray-100 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Conduit Playwright Framework</h3>
+                        <p class="text-accent1 mb-4">A Playwright (TypeScript) end-to-end test automation framework using the Page Object Model, with a CI workflow in GitHub Actions.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Playwright</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">TypeScript</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Automation</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">CI/CD</span>
+                        </div>
+                        <a href="https://github.com/mokaddes-arman/conduit-playwright-framework" target="_blank" rel="noopener noreferrer" class="inline-block bg-dark text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition">GitHub</a>
+                    </article>
+
+                    <!-- DRAFT: review description before publishing -->
+                    <article class="card bg-gray-50 border border-gray-100 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Saucedemo Playwright</h3>
+                        <p class="text-accent1 mb-4">Playwright automation tests for the SauceDemo e-commerce demo site.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Playwright</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Automation</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">E2E</span>
+                        </div>
+                        <a href="https://github.com/mokaddes-arman/saucedemo-playwright" target="_blank" rel="noopener noreferrer" class="inline-block bg-dark text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition">GitHub</a>
+                    </article>
+
+                    <!-- DRAFT: review description before publishing -->
+                    <article class="card bg-gray-50 border border-gray-100 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Sitemap URL Check</h3>
+                        <p class="text-accent1 mb-4">A utility that reads a sitemap and checks every URL for broken links and bad status codes.</p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Automation</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Utility</span>
+                        </div>
+                        <a href="https://github.com/mokaddes-arman/sitemapURLCheck" target="_blank" rel="noopener noreferrer" class="inline-block bg-dark text-white px-5 py-2.5 rounded-lg font-medium hover:bg-opacity-90 transition">GitHub</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Skills & Expertise</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 text-dark">Testing Skills</h3>
-                    
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium text-accent1">Manual Testing</span>
-                            <span class="text-primary">95%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium text-accent1">API Testing (Postman)</span>
-                            <span class="text-primary">90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium text-accent1">Load Testing (JMeter)</span>
-                            <span class="text-primary">85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%"></div>
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-xl font-semibold mb-6 text-dark">Testing Skills</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+                        <h4 class="font-semibold text-secondary mb-3">Manual &amp; Functional</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Manual Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Functional Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Regression Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Smoke Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Sanity Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">UI Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">User Acceptance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Scenario Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Module Based Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Design</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Case Scripting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Requirement Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Root Cause Analysis</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Bug Reporting</span>
                         </div>
                     </div>
-                    
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium text-accent1">Automation Testing</span>
-                            <span class="text-primary">80%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium text-accent1">Documentation</span>
-                            <span class="text-primary">90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+                        <h4 class="font-semibold text-secondary mb-3">API &amp; Performance</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">API Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Postman</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Load Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Performance Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">JMeter</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Database Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Security Reporting</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Penetration Testing (Basic)</span>
                         </div>
                     </div>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium text-accent1">Team Management & Mentoring</span>
-                            <span class="text-primary">85%</span>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+                        <h4 class="font-semibold text-secondary mb-3">Automation</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Playwright</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Cypress</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Appium</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Selenium</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Java</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">JavaScript</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">TypeScript</span>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%"></div>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+                        <h4 class="font-semibold text-secondary mb-3">Mobile</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Mobile App Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">iOS</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Android</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Cross-Browser Testing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Web Testing</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-5 md:col-span-2">
+                        <h4 class="font-semibold text-secondary mb-3">Management &amp; Documentation</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Team Leadership</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Mentoring</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Planning</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Test Report</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">SRS Writing</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Jira</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Asana</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Trello</span>
+                            <span class="chip bg-primary bg-opacity-20 text-secondary">Weekly Reporting</span>
                         </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 text-dark">Technical Skills</h3>
-                    <div class="grid grid-cols-2 gap-4">
+
+                <h3 class="text-xl font-semibold mt-10 mb-6 text-dark">Technical Skills</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                         <div class="card bg-primary bg-opacity-10 p-4 rounded-lg text-center">
                             <div class="text-secondary mb-2">
                                 <i data-feather="code" class="mx-auto"></i>
@@ -443,7 +816,6 @@
                             <h4 class="font-medium text-dark">Asana</h4>
                         </div>
                     </div>
-                </div>
             </div>
             
             <!-- Additional Skills -->
@@ -463,7 +835,7 @@
                         <span class="text-accent1">Web Testing</span>
                     </div>
                     <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
-                        <span class="text-accent1">Game Testing</span>
+                        <a href="#projects" class="text-accent1 underline hover:text-secondary" title="See game projects tested at Riseup Labs">Game Testing</a>
                     </div>
                     <div class="bg-primary bg-opacity-10 rounded-lg px-4 py-3 text-center">
                         <span class="text-accent1">Functional Testing</span>
@@ -562,6 +934,17 @@
         </div>
     </section>
 
+    <!-- Certifications & Training (commented out — enable when you have items to list)
+    <section id="certifications" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Certifications & Training</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- [ADD LATER: certification items] -->
+            </div>
+        </div>
+    </section>
+    -->
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
@@ -587,7 +970,7 @@
                         </div>
                         <div>
                             <h4 class="font-medium text-dark">Email</h4>
-                            <p class="text-accent1">mokaddes.arman.2111@gmail.com</p>
+                            <p class="text-accent1"><a href="mailto:mokaddes.arman.2111@gmail.com" class="hover:text-secondary underline">mokaddes.arman.2111@gmail.com</a></p>
                         </div>
                     </div>
                     
@@ -597,15 +980,15 @@
                         </div>
                         <div>
                             <h4 class="font-medium text-dark">Phone</h4>
-                            <p class="text-accent1">+880 1837-129041, +880 1987-602757</p>
+                            <p class="text-accent1"><a href="tel:+8801987602757" class="hover:text-secondary underline">+880 1987-602757</a></p>
                         </div>
                     </div>
                     
                     <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/mdabdulmokaddes" target="_blank" class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary hover:bg-opacity-30 transition">
+                        <a href="https://www.linkedin.com/in/mdabdulmokaddes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary hover:bg-opacity-30 transition">
                             <i data-feather="linkedin" class="w-5 h-5"></i>
                         </a>
-                        <a href="https://github.com/mokaddes-arman" target="_blank" class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary hover:bg-opacity-30 transition">
+                        <a href="https://github.com/mokaddes-arman" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-secondary hover:bg-opacity-30 transition">
                             <i data-feather="github" class="w-5 h-5"></i>
                         </a>
                     </div>
@@ -614,16 +997,16 @@
                 <div class="md:w-1/2">
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <h3 class="text-xl font-semibold mb-4 text-dark">Send Me a Message</h3>
-                        <form id="contact-form" action="https://formspree.io/f/mdkzwrlb" method="POST" class="space-y-4">
+                        <form id="contact-form" method="POST" class="space-y-4" novalidate>
                             <div>
                                 <label for="name" class="block text-accent1 mb-2">Name</label>
-                                <input type="text" name="name" id="name" required
+                                <input type="text" name="name" id="name" required minlength="2" autocomplete="name"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                                     placeholder="Your Name">
                             </div>
                             <div>
                                 <label for="email" class="block text-accent1 mb-2">Email</label>
-                                <input type="email" name="email" id="email" required
+                                <input type="email" name="email" id="email" required autocomplete="email"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                                     placeholder="Your Email">
                             </div>
@@ -635,14 +1018,14 @@
                             </div>
                             <div>
                                 <label for="message" class="block text-accent1 mb-2">Message</label>
-                                <textarea name="message" id="message" rows="4" required
+                                <textarea name="message" id="message" rows="4" required minlength="10"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                                     placeholder="Your Message"></textarea>
                             </div>
-                            <button type="submit"
-                                class="w-full bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Send
+                            <button type="submit" id="contact-submit"
+                                class="w-full bg-accent1 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition disabled:opacity-60">Send
                                 Message</button>
-                            <p id="form-status" class="text-green-600 text-sm mt-2 hidden">Thanks! Your message has been sent.</p>
+                            <p id="form-status" class="text-sm mt-2 hidden" role="status" aria-live="polite">Thanks! Your message has been sent.</p>
                         </form>
                     </div>
                 </div>
@@ -653,21 +1036,22 @@
 <!-- Footer -->
 <footer class="gradient-bg text-white py-6">
     <div class="container mx-auto px-6">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <!-- Left: Name + Socials -->
             <div class="flex items-center space-x-4">
                 <h2 class="text-lg font-bold">MD ABDUL<span class="text-primary"> MOKADDES</span></h2>
-                <a href="https://www.linkedin.com/in/mdabdulmokaddes" target="_blank" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                <a href="https://www.linkedin.com/in/mdabdulmokaddes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
                     <i data-feather="linkedin" class="w-4 h-4"></i>
                 </a>
-                <a href="https://github.com/mokaddes-arman" target="_blank" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                <a href="https://github.com/mokaddes-arman" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="w-8 h-8 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
                     <i data-feather="github" class="w-4 h-4"></i>
                 </a>
             </div>
 
             <!-- Middle: Visitor Count -->
             <div class="text-sm font-medium">
-                <span id="footer-visitor-count" class="font-bold">1</span> Visitors
+                <span id="footer-visitor-count" class="font-bold">1</span>
+                <span data-visitor-label>visitors</span>
             </div>
 
             <!-- Right: Credits -->
@@ -675,39 +1059,76 @@
         </div>
     </div>
 </footer>
-   <script>
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
+<!-- Back to top -->
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-secondary text-white shadow-lg flex items-center justify-center hover:bg-opacity-90">
+    <i data-feather="arrow-up" class="w-5 h-5"></i>
+</button>
+    <script>
+    // Contact form backend: replace with your own Formspree form ID.
+    // 1. Create a form at https://formspree.io/forms, 2. copy the ID, 3. paste below.
+    const YOUR_FORMSPREE_ID = "mdkzwrlb";
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/" + YOUR_FORMSPREE_ID;
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const action = form.getAttribute("action");
-    try {
-      const response = await fetch(action, {
-        method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (response.ok) {
-        status.classList.remove("hidden");
-        status.textContent = "Thanks! Your message has been sent.";
-        form.reset();
-       // Refresh the page after 5 seconds
-        setTimeout(() => location.reload(), 5000);
-      } else {
-        status.textContent = "Oops! Something went wrong.";
-        status.classList.remove("hidden");
-        status.classList.replace("text-green-600", "text-red-600");
-      }
-    } catch (error) {
-      status.textContent = "There was a problem sending your message.";
-      status.classList.remove("hidden");
-      status.classList.replace("text-green-600", "text-red-600");
-    }
-  });
-</script>
+    (function initContactForm() {
+        const form = document.getElementById("contact-form");
+        if (!form) return;
+        const status = document.getElementById("form-status");
+        const submitBtn = document.getElementById("contact-submit");
+
+        function showStatus(message, isError) {
+            status.classList.remove("hidden");
+            status.textContent = message;
+            status.classList.toggle("text-green-600", !isError);
+            status.classList.toggle("text-red-600", isError);
+        }
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (name.length < 2) {
+                showStatus("Please enter your name.", true);
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showStatus("Please enter a valid email address.", true);
+                return;
+            }
+            if (message.length < 10) {
+                showStatus("Please write a message of at least 10 characters.", true);
+                return;
+            }
+
+            submitBtn.disabled = true;
+            const originalLabel = submitBtn.textContent;
+            submitBtn.textContent = "Sending…";
+            try {
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                });
+                if (response.ok) {
+                    showStatus("Thanks! Your message has been sent.", false);
+                    form.reset();
+                } else {
+                    showStatus("Oops! Something went wrong. Please try again.", true);
+                }
+            } catch (error) {
+                showStatus("There was a problem sending your message. Please try again.", true);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalLabel;
+            }
+        });
+    })();
+    </script>
 <script>
+  function formatVisitorText(count) {
+    return count === 1 ? "visitor" : "visitors";
+  }
   async function updateVisitorCount() {
     try {
       const response = await fetch('https://visitor-tracker-1-vo1d.onrender.com/track');
@@ -719,7 +1140,13 @@
       
       visitorCounters.forEach(counter => {
         counter.textContent = visitorCount;
+        counter.classList.remove('opacity-0');
         counter.classList.add('counter-animation');
+      });
+
+      // Consistent "X visitors" wording (singular/plural) in hero + footer
+      document.querySelectorAll('[data-visitor-label]').forEach(label => {
+        label.textContent = formatVisitorText(visitorCount);
       });
 
     } catch (error) {
@@ -742,7 +1169,8 @@
             const mobileMenu = document.getElementById('mobile-menu');
             
             menuToggle.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
+                const expanded = mobileMenu.classList.toggle('hidden');
+                menuToggle.setAttribute('aria-expanded', String(!expanded));
             });
             
             // Smooth scrolling for anchor links
@@ -768,42 +1196,51 @@
                 });
             });
             
-            // Animate skill bars on scroll
-            const skillSection = document.getElementById('skills');
-            const progressBars = document.querySelectorAll('.progress');
+            // Animate skill bars on scroll (removed: skills now use chips, no percentages)
             
-            if (skillSection && progressBars.length) {
-                const animateSkills = () => {
-                    const sectionTop = skillSection.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (sectionTop < windowHeight * 0.75) {
-                        progressBars.forEach(bar => {
-                            const width = bar.style.width;
-                            bar.style.width = '0';
-                            setTimeout(() => {
-                                bar.style.width = width;
-                            }, 100);
-                        });
-                        window.removeEventListener('scroll', animateSkills);
-                    }
-                };
-                
-                window.addEventListener('scroll', animateSkills);
-                // Initial check
-                animateSkills();
-            }
-            
-            // Blog post hover effect
-            const blogCards = document.querySelectorAll('.blog-card');
-            blogCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.querySelector('svg').classList.add('scale-105');
+            // Project tabs: accessible tab switcher with keyboard support
+            const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+            const panels = {
+                'tab-professional': document.getElementById('panel-professional'),
+                'tab-personal': document.getElementById('panel-personal')
+            };
+
+            function selectTab(tab) {
+                tabs.forEach(t => {
+                    const selected = t === tab;
+                    t.setAttribute('aria-selected', String(selected));
+                    t.tabIndex = selected ? 0 : -1;
+                    const panel = document.getElementById(t.getAttribute('aria-controls'));
+                    if (panel) panel.hidden = !selected;
                 });
-                card.addEventListener('mouseleave', function() {
-                    this.querySelector('svg').classList.remove('scale-105');
+            }
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => selectTab(tab));
+                tab.addEventListener('keydown', (e) => {
+                    let nextIndex = null;
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+                    if (e.key === 'Home') nextIndex = 0;
+                    if (e.key === 'End') nextIndex = tabs.length - 1;
+                    if (nextIndex !== null) {
+                        e.preventDefault();
+                        tabs[nextIndex].focus();
+                        selectTab(tabs[nextIndex]);
+                    }
                 });
             });
+
+            // Back to top
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    backToTop.classList.toggle('visible', window.pageYOffset > 600);
+                }, { passive: true });
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
             
             // Active section highlighting on scroll
             const sections = document.querySelectorAll('section');
